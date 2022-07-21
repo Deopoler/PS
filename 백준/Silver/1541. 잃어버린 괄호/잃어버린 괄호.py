@@ -1,0 +1,1 @@
+print(eval('-'.join([f"({'+'.join([str(int(j))for j in i.split('+')])})"for i in input().split('-')])))
