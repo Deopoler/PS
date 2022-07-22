@@ -3,10 +3,6 @@
 
 using namespace std;
 
-#include <bits/stdc++.h>
-
-using namespace std;
-
 template <typename T>
 class Matrix
 {
@@ -28,8 +24,7 @@ public:
         m = data.m;
     }
 
-    Matrix
-    operator+(const Matrix &a)
+    Matrix operator+(const Matrix &a)
     {
         Matrix b = Matrix(m.size(), m[0].size());
         for (long long i = 0; i < m.size(); i++)
