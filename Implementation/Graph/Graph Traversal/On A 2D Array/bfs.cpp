@@ -4,7 +4,7 @@ using namespace std;
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-void bfs(vector<vector<int>> &graph, vector<vector<int>> &visited, int startRow, int startCol)
+void bfs(vector<vector<int>> &graph, vector<vector<bool>> &visited, int startRow, int startCol)
 {
     queue<pair<int, int>> q;
     q.push({startRow, startCol});
