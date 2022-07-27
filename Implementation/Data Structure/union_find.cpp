@@ -29,6 +29,8 @@ public:
 
     void unite(int a, int b)
     {
+        if (find(a) == find(b))
+            return;
         a = find(a);
         b = find(b);
         if (size[a] < size[b])
@@ -40,5 +42,10 @@ public:
     bool same(int a, int b)
     {
         return find(a) == find(b);
+    }
+
+    int getsize(int x)
+    {
+        return size[find(x)];
     }
 };
