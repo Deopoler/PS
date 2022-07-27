@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void bfs(vector<vector<int>> &graph, vector<int> &distance, int start)
+using Graph = vector<vector<int>>;
+using Distance = vector<int>;
+using Visited = vector<bool>;
+
+void bfs(Graph &graph, Distance &distance, int start)
 {
     queue<int> q;
     q.push(start);
@@ -24,7 +28,7 @@ void bfs(vector<vector<int>> &graph, vector<int> &distance, int start)
     }
 }
 
-int bfs(vector<vector<int>> &graph, vector<bool> &visited, int start, int target)
+int bfs(Graph &graph, Visited &visited, int start, int target)
 {
     queue<pair<int, int>> q;
     q.push({start, 0});

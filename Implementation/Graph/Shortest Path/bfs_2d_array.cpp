@@ -1,10 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+using Graph = vector<vector<int>>;
+using Visited = vector<vector<bool>>;
+using Distance = vector<vector<long long>>;
+
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-void bfs(vector<vector<int>> &graph, vector<vector<int>> &visited, vector<vector<int>> &distance, int startRow, int startCol)
+void bfs(Graph &graph, Visited &visited, Distance &distance, int startRow, int startCol)
 {
     queue<pair<int, int>> q;
     q.push({startRow, startCol});

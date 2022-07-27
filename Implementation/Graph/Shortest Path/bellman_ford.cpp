@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool bellman_ford(vector<tuple<int, int, int>> &graph, vector<int> &distance, int start, int nodes)
+using Graph = vector<tuple<int, int, int>>;
+
+bool bellman_ford(Graph &graph, vector<int> &distance, int start, int nodes)
 {
     distance[start] = 0;
     for (int i = 0; i < nodes - 1; i++)

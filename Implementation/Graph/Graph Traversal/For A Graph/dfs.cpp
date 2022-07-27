@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void dfs(vector<vector<int>> &graph, vector<bool> &visited, int node)
+using Graph = vector<vector<int>>;
+
+void dfs(Graph &graph, vector<bool> &visited, int node)
 {
     if (visited[node])
         return;

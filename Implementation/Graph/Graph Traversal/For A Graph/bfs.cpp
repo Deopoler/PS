@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void bfs(vector<vector<int>> &graph, vector<bool> &visited, int start)
+using Graph = vector<vector<int>>;
+
+void bfs(Graph &graph, vector<bool> &visited, int start)
 {
     queue<int> q;
     q.push(start);
