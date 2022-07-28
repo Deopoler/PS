@@ -43,9 +43,9 @@ public:
     }
 };
 
-using Graph = vector<tuple<int, int, int>>;
+using vvi = vector<tuple<int, int, int>>;
 
-int kruskal(Graph &graph, int nodes)
+int kruskal(vvi &graph, int nodes)
 {
     int result = 0;
     sort(

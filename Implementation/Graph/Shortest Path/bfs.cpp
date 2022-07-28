@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using Graph = vector<vector<int>>;
-using Distance = vector<int>;
-using Visited = vector<bool>;
+using vvi = vector<vector<int>>;
+using vl = vector<long long>;
+using vvb = vector<bool>;
 
-void bfs(Graph &graph, Distance &distance, int start)
+void bfs(vvi &graph, vl &distance, int start)
 {
     queue<int> q;
     q.push(start);
@@ -28,7 +28,7 @@ void bfs(Graph &graph, Distance &distance, int start)
     }
 }
 
-int bfs(Graph &graph, Visited &visited, int start, int target)
+int bfs(vvi &graph, vvb &visited, int start, int target)
 {
     queue<pair<int, int>> q;
     q.push({start, 0});

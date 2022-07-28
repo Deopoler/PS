@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using Graph = vector<tuple<int, int, int>>;
+using vvi = vector<tuple<int, int, int>>;
+using vl = vector<long long>;
 
-bool bellman_ford(Graph &graph, vector<int> &distance, int start, int nodes)
+bool bellman_ford(vvi &graph, vl &distance, int start, int nodes)
 {
     distance[start] = 0;
     for (int i = 0; i < nodes - 1; i++)

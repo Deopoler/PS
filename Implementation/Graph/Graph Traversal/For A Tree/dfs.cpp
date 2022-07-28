@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using Tree = vector<vector<int>>;
+using vvi = vector<vector<int>>;
 
-void dfs(Tree &tree, int node, int e)
+void dfs(vvi &tree, int node, int e)
 {
     for (auto n : tree[node])
     {

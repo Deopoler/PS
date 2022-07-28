@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using Graph = vector<vector<pair<int, int>>>;
-using Distance = vector<int>;
+using vvi = vector<vector<pair<int, int>>>;
+using vl = vector<long long>;
 
-void dijkstra(Graph &graph, Distance &distance, int start)
+void dijkstra(vvi &graph, vl &distance, int start)
 {
     priority_queue<pair<int, int>> q;
 

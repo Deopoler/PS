@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using Graph = vector<vector<pair<int, int>>>;
+using vvi = vector<vector<pair<int, int>>>;
+using vl = vector<long long>;
 
-void bfs(Graph &graph, vector<int> &distance, int start)
+void bfs(vvi &graph, vl &distance, int start)
 {
     deque<int> q;
     q.push_back(start);

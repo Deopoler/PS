@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using Graph = vector<vector<int>>;
-using Visited = vector<vector<bool>>;
+using vvi = vector<vector<int>>;
+using vvb = vector<vector<bool>>;
 
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-void bfs(Graph &graph, Visited &visited, int startRow, int startCol)
+void bfs(vvi &graph, vvb &visited, int startRow, int startCol)
 {
     queue<pair<int, int>> q;
     q.push({startRow, startCol});
