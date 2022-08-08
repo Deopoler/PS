@@ -2,10 +2,10 @@
 using namespace std;
 
 using vvi = vector<vector<int>>;
-using vl = vector<long long>;
+using vll = vector<long long>;
 using vvb = vector<bool>;
 
-void bfs(vvi &graph, vl &distance, int start)
+void bfs(vvi &graph, vll &distance, int start)
 {
     queue<int> q;
     q.push(start);

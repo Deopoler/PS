@@ -29,10 +29,10 @@ public:
 
     void unite(int a, int b)
     {
-        if (find(a) == find(b))
-            return;
         a = find(a);
         b = find(b);
+        if (a == b)
+            return;
         if (size[a] < size[b])
             swap(a, b);
         size[a] += size[b];

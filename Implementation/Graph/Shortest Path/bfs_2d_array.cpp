@@ -3,12 +3,12 @@ using namespace std;
 
 using vvi = vector<vector<int>>;
 using vvb = vector<vector<bool>>;
-using vvl = vector<vector<long long>>;
+using vvll = vector<vector<long long>>;
 
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-void bfs(vvi &graph, vvb &visited, vvl &distance, int startRow, int startCol)
+void bfs(vvi &graph, vvb &visited, vvll &distance, int startRow, int startCol)
 {
     queue<pair<int, int>> q;
     q.push({startRow, startCol});

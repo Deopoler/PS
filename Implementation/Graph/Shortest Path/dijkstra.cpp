@@ -2,9 +2,9 @@
 using namespace std;
 
 using vvi = vector<vector<pair<int, int>>>;
-using vl = vector<long long>;
+using vll = vector<long long>;
 
-void dijkstra(vvi &graph, vl &distance, int start)
+void dijkstra(vvi &graph, vll &distance, int start)
 {
     priority_queue<pair<int, int>> q;
 

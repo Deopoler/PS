@@ -2,9 +2,9 @@
 using namespace std;
 
 using vvi = vector<vector<pair<int, int>>>;
-using vl = vector<long long>;
+using vll = vector<long long>;
 
-void bfs(vvi &graph, vl &distance, int start)
+void bfs(vvi &graph, vll &distance, int start)
 {
     deque<int> q;
     q.push_back(start);
