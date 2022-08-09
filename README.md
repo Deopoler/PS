@@ -15,4 +15,4 @@ PS 풀이 모아놓는 레포
 
 ## CP
 
-[![CP Card](https://cp-cards.herokuapp.com?name=Deopoler&atcoder=Deopoler)](https://atcoder.jp/users/Deopoler)
+[![AtCoder](https://cp-logo.vercel.app/atcoder/Deopoler)](https://atcoder.jp/users/Deopoler)
