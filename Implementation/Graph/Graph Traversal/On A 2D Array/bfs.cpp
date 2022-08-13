@@ -23,7 +23,7 @@ void bfs(vvi &graph, vvb &visited, int startRow, int startCol)
         {
             int next_row = row + drow[i];
             int next_col = col + dcol[i];
-            if (visited[next_row][next_col] || next_row < 0 || next_row >= graph.size() || next_col < 0 || next_col >= graph[0].size())
+            if (next_row < 0 || next_row >= graph.size() || next_col < 0 || next_col >= graph[0].size() || visited[next_row][next_col])
                 continue;
             visited[next_row][next_col] = true;
             q.push({next_row, next_col});
