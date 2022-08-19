@@ -3,7 +3,7 @@ using namespace std;
 
 using vvi = vector<vector<int>>;
 using vll = vector<long long>;
-using vvb = vector<bool>;
+using vb = vector<bool>;
 
 void bfs(vvi &graph, vll &distance, int start)
 {
@@ -28,7 +28,7 @@ void bfs(vvi &graph, vll &distance, int start)
     }
 }
 
-int bfs(vvi &graph, vvb &visited, int start, int target)
+int bfs(vvi &graph, vb &visited, int start, int target)
 {
     queue<pair<int, int>> q;
     q.push({start, 0});
