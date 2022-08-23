@@ -17,8 +17,6 @@ int main()
         cin >> A[i];
     }
 
-    sort(A.begin(), A.end());
-
     auto start = A.begin();
     auto end = A.end() - 1;
 
