@@ -1,20 +1,13 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-// RMQ(Range Minimum Query) 구현
-template <typename T>
+template <typename T,
+          T (*op)(T, T)>
 class SegTree
 {
 private:
     int n;
     vector<T> tree;
-
-    // 처리 함수
-    T op(T &a, T &b)
-    {
-        return min(a, b);
-    }
 
     // node가 [nodeLeft..nodeRight] 표현
     // node를 루트로 하는 서브트리 초기화
@@ -73,7 +66,7 @@ public:
         init(array, 1, 0, n - 1);
     }
 
-    SegTree(int n, T val = 0) : SegTree(vector<T> array(n, val)) {}
+    SegTree(int n, T val = 0) : SegTree(vector<T>(n, val)) {}
 
     // array[left..right] 값 반환
     T query(int left, int right)
