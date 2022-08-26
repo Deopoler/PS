@@ -10,6 +10,12 @@ private:
     int n;
     vector<T> tree;
 
+    // 처리 함수
+    T op(T &a, T &b)
+    {
+        return min(a, b);
+    }
+
     // node가 [nodeLeft..nodeRight] 표현
     // node를 루트로 하는 서브트리 초기화
     T init(const vector<T> &array, int node, int nodeLeft, int nodeRight)
@@ -19,7 +25,7 @@ private:
         int mid = (nodeLeft + nodeRight) / 2;
         T leftValue = init(array, node * 2, nodeLeft, mid);
         T rightValue = init(array, node * 2 + 1, mid + 1, nodeRight);
-        return tree[node] = min(leftValue, rightValue);
+        return tree[node] = op(leftValue, rightValue);
     }
 
     // node가 [nodeLeft..nodeRight] 표현
@@ -36,7 +42,7 @@ private:
         int mid = (nodeLeft + nodeRight) / 2;
         T leftValue = query(left, right, node * 2, nodeLeft, mid);
         T rightValue = query(left, right, node * 2 + 1, mid + 1, nodeRight);
-        return min(leftValue, rightValue);
+        return op(leftValue, rightValue);
     }
 
     // array[index] = newValue로 변경
@@ -55,7 +61,7 @@ private:
         int mid = (nodeLeft + nodeRight) / 2;
         T leftValue = update(index, newValue, node * 2, nodeLeft, mid);
         T rightValue = update(index, newValue, node * 2 + 1, mid + 1, nodeRight);
-        return tree[node] = min(leftValue, rightValue);
+        return tree[node] = op(leftValue, rightValue);
     }
 
 public:
@@ -66,6 +72,8 @@ public:
         tree.resize(1 << (height + 1));
         init(array, 1, 0, n - 1);
     }
+
+    SegTree(int n, T val = 0) : SegTree(vector<T> array(n, val)) {}
 
     // array[left..right] 값 반환
     T query(int left, int right)
