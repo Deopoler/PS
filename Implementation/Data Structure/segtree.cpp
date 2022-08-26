@@ -2,11 +2,12 @@
 
 using namespace std;
 template <typename T,
-          T (*op)(T, T)>
+          T (*op)(T &, T &)>
 class SegTree
 {
 private:
     int n;
+    T val;
     vector<T> tree;
 
     // node가 [nodeLeft..nodeRight] 표현
@@ -25,9 +26,9 @@ private:
     // array[left..right]의 값 반환
     T query(int left, int right, int node, int nodeLeft, int nodeRight)
     {
-        // 범위를 벗어나면 INF반환
+        // 범위를 벗어나면 기본값반환
         if (right < nodeLeft || nodeRight < left)
-            return INT_MAX;
+            return val;
 
         if (left <= nodeLeft && nodeRight <= right)
             return tree[node];
@@ -58,15 +59,16 @@ private:
     }
 
 public:
-    SegTree(const vector<T> &array)
+    SegTree(const vector<T> &array, T val)
     {
         n = array.size();
+        this->val = val;
         int height = (int)ceil(log2(n));
         tree.resize(1 << (height + 1));
         init(array, 1, 0, n - 1);
     }
 
-    SegTree(int n, T val = 0) : SegTree(vector<T>(n, val)) {}
+    SegTree(int n, T val) : SegTree(vector<T>(n, val), val) {}
 
     // array[left..right] 값 반환
     T query(int left, int right)
