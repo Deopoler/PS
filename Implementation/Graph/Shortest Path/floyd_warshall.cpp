@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using vvi = vector<vector<long long>>;
+using vvll = vector<vector<long long>>;
 
-void floyd_warshall(vvi &graph)
+void floyd_warshall(vvll &graph)
 {
     int n = graph.size();
     for (int k = 0; k < n; k++)
