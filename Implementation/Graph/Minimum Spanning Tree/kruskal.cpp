@@ -31,6 +31,8 @@ public:
     {
         a = find(a);
         b = find(b);
+        if (a == b)
+            return;
         if (size[a] < size[b])
             swap(a, b);
         size[a] += size[b];
@@ -41,11 +43,16 @@ public:
     {
         return find(a) == find(b);
     }
+
+    int getsize(int x)
+    {
+        return size[find(x)];
+    }
 };
 
-using vvi = vector<tuple<int, int, int>>;
+using viii = vector<tuple<int, int, int>>;
 
-int kruskal(vvi &graph, int nodes)
+int kruskal(viii &graph, int nodes)
 {
     int result = 0;
     sort(
