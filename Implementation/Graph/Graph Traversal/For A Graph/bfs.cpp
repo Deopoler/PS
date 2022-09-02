@@ -2,8 +2,9 @@
 using namespace std;
 
 using vvi = vector<vector<int>>;
+using vi = vector<int>;
 
-void bfs(vvi &graph, vector<bool> &visited, int start)
+void bfs(vvi &graph, vi &visited, int start)
 {
     queue<int> q;
     q.push(start);

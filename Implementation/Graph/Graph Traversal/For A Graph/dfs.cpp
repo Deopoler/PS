@@ -2,8 +2,9 @@
 using namespace std;
 
 using vvi = vector<vector<int>>;
+using vi = vector<int>;
 
-void dfs(vvi &graph, vector<bool> &visited, int node)
+void dfs(vvi &graph, vi &visited, int node)
 {
     if (visited[node])
         return;
