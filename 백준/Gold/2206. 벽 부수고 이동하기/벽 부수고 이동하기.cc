@@ -3,13 +3,13 @@
 using namespace std;
 
 using vvi = vector<vector<int>>;
-using vvb = vector<vector<array<bool, 2>>>;
+using vvi = vector<vector<array<bool, 2>>>;
 using vvl = vector<vector<array<long long, 2>>>;
 
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-void bfs(vvi &graph, vvb &visited, vvl &distance, int startRow, int startCol)
+void bfs(vvi &graph, vvi &visited, vvl &distance, int startRow, int startCol)
 {
     queue<tuple<int, int, bool>> q;
     q.push({startRow, startCol, false});
@@ -56,7 +56,7 @@ int main()
     cin >> N >> M;
 
     vvi graph(N, vector<int>(M));
-    vvb visited(N, vector<array<bool, 2>>(M, {false, false}));
+    vvi visited(N, vector<array<bool, 2>>(M, {false, false}));
     vvl distance(N, vector<array<long long, 2>>(M, {-1, -1}));
     for (int i = 0; i < N; i++)
     {

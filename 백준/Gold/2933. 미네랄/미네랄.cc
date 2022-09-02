@@ -4,14 +4,14 @@ using namespace std;
 using ll = long long;
 
 using vstr = vector<string>;
-using vvb = vector<vector<bool>>;
+using vvi = vector<vector<bool>>;
 using vpii = vector<pair<int, int>>;
 using pi = pair<int, int>;
 
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-vvb isInAir(const vstr &cave, vvb &visited)
+vvi isInAir(const vstr &cave, vvi &visited)
 {
     queue<pair<int, int>> q;
 
@@ -40,7 +40,7 @@ vvb isInAir(const vstr &cave, vvb &visited)
         }
     }
 
-    vvb inair(cave.size(), vector<bool>(cave[0].size(), false));
+    vvi inair(cave.size(), vector<bool>(cave[0].size(), false));
     for (int i = 0; i < cave.size(); i++)
     {
         for (int j = 0; j < cave[0].size(); j++)
@@ -54,7 +54,7 @@ vvb isInAir(const vstr &cave, vvb &visited)
     return inair;
 }
 
-int howmanycango(const vvb &visited, const vvb &inair)
+int howmanycango(const vvi &visited, const vvi &inair)
 {
     for (int count = 1;; count++)
     {
@@ -71,8 +71,8 @@ int howmanycango(const vvb &visited, const vvb &inair)
 
 void gravity(vstr &cave)
 {
-    vvb visited(cave.size(), vector<bool>(cave[0].size(), false));
-    vvb inair = isInAir(cave, visited);
+    vvi visited(cave.size(), vector<bool>(cave[0].size(), false));
+    vvi inair = isInAir(cave, visited);
 
     bool isempty = true;
     for (auto &&i : inair)

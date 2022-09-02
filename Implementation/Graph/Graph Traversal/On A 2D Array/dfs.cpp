@@ -2,12 +2,12 @@
 using namespace std;
 
 using vstr = vector<string>;
-using vvb = vector<vector<bool>>;
+using vvi = vector<vector<bool>>;
 
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-void dfs(vstr &graph, vvb &visited, int row, int col)
+void dfs(vstr &graph, vvi &visited, int row, int col)
 {
     if (row < 0 || row >= graph.size() || col < 0 || col >= graph[0].size() || visited[row][col])
         return;

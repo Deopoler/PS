@@ -4,12 +4,12 @@ using namespace std;
 using ll = long long;
 
 using vvi = vector<vector<int>>;
-using vvb = vector<vector<bool>>;
+using vvi = vector<vector<bool>>;
 
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-bool bfs(vvi &graph, vvb &visited, int startRow, int startCol, int targetRow, int targetCol, int targetMin, int targetMax)
+bool bfs(vvi &graph, vvi &visited, int startRow, int startCol, int targetRow, int targetCol, int targetMin, int targetMax)
 {
     if (graph[startRow][startCol] > targetMax || graph[startRow][startCol] < targetMin)
         return false;
@@ -37,7 +37,7 @@ bool bfs(vvi &graph, vvb &visited, int startRow, int startCol, int targetRow, in
     return visited[targetRow][targetCol];
 }
 
-bool check(vvi &graph, vvb &visited, int n, int diff)
+bool check(vvi &graph, vvi &visited, int n, int diff)
 {
     for (int i = 0; i <= 200; i++)
     {
@@ -64,7 +64,7 @@ int main()
     int n;
     cin >> n;
     vvi graph(n, vector<int>(n));
-    vvb visited(n, vector<bool>(n));
+    vvi visited(n, vector<bool>(n));
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)

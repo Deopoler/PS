@@ -40,7 +40,7 @@ reversion_wrapper<T> reversed(T &&iterable) { return {iterable}; }
 using ll = long long;
 using vvll = vector<vector<long long>>;
 using vll = vector<long long>;
-using vb = vector<bool>;
+using vi = vector<bool>;
 void dijkstra(vvll &graph, vll &distance, int start)
 {
     vector<bool> visited(graph.size(), false);
@@ -78,7 +78,7 @@ void dijkstra(vvll &graph, vll &distance, int start)
     }
 }
 
-void removeEdges(vvll &graph, vll &distance, vb &visited, int dest)
+void removeEdges(vvll &graph, vll &distance, vi &visited, int dest)
 {
     if (visited[dest])
         return;
@@ -128,7 +128,7 @@ int main()
         // 첫번째 최단 경로 지우기
         dijkstra(graph, distance, start);
 
-        vb visited(sz(graph));
+        vi visited(sz(graph));
         removeEdges(graph, distance, visited, dest);
 
         distance = vll(N, llinf);

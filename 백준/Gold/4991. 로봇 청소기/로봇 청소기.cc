@@ -5,14 +5,14 @@ using namespace std;
 int W, H;
 using ll = long long;
 using vstr = vector<string>;
-using vvb = vector<vector<bool>>;
+using vvi = vector<vector<bool>>;
 using vvll = vector<vector<long long>>;
 using vvi = vector<vector<int>>;
 
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-void bfs(vstr &graph, vvb &visited, vvll &distance, int startRow, int startCol)
+void bfs(vstr &graph, vvi &visited, vvll &distance, int startRow, int startCol)
 {
     queue<pair<int, int>> q;
     q.push({startRow, startCol});
@@ -90,7 +90,7 @@ int main()
         }
 
         vvll dist(dirtyPos.size() + 1, vector<ll>(dirtyPos.size() + 1));
-        vvb visited(H, vector<bool>(W, false));
+        vvi visited(H, vector<bool>(W, false));
         vvll distance(H, vector<ll>(W, -1));
         bfs(graph, visited, distance, startPos.first, startPos.second);
         for (int i = 0; i < dirtyPos.size(); i++)

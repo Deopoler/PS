@@ -2,13 +2,13 @@
 using namespace std;
 
 using vstr = vector<string>;
-using vvb = vector<vector<bool>>;
+using vvi = vector<vector<bool>>;
 using vvll = vector<vector<long long>>;
 
 int drow[4] = {0, 0, 1, -1};
 int dcol[4] = {1, -1, 0, 0};
 
-void bfs(vstr &graph, vvb &visited, vvll &distance, int startRow, int startCol)
+void bfs(vstr &graph, vvi &visited, vvll &distance, int startRow, int startCol)
 {
     queue<pair<int, int>> q;
     q.push({startRow, startCol});
