@@ -13,10 +13,16 @@ private:
 
     // 좌측 노드와 우측 노드의 연산 정의
     // 결합법칙을 만족하고 항등원이 존재해야 함
-    // 문제마다 수정
+    // 문제마다 수정(기본은 합 연산)
     T merge(T &a, T &b)
     {
-        return T();
+        return a + b;
+    }
+
+    // 값 업데이트 시 현재의 값과 새로운 값과의 관계 정의
+    T update_value(T &current, T &new_value)
+    {
+        return new_value;
     }
 
     // node가 [nodeLeft..nodeRight] 표현
@@ -68,7 +74,7 @@ public:
         index += n;
         tree[index] = newValue;
         for (index /= 2; index >= 1; index /= 2)
-            tree[index] = merge(tree[index * 2], tree[index * 2 + 1]);
+            tree[index] = update_value(tree[index], merge(tree[index * 2], tree[index * 2 + 1]));
     }
 };
 
@@ -82,6 +88,7 @@ public:
 //     vector<T> tree;
 
 //     // 좌측 노드와 우측 노드의 연산 정의
+//     // 결합법칙을 만족하고 항등원이 존재해야 함
 //     // 문제마다 수정
 //     T merge(T &a, T &b)
 //     {
