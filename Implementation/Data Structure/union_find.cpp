@@ -48,4 +48,10 @@ public:
     {
         return size[find(x)];
     }
+
+    ~Union_Find()
+    {
+        delete[] link;
+        delete[] size;
+    }
 };
