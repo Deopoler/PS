@@ -10,13 +10,6 @@ struct Node
 };
 
 template <typename Value, typename Lazy>
-struct Node
-{
-    Value value;
-    Lazy lazy;
-};
-
-template <typename Value, typename Lazy>
 class LazySegTree
 {
 private:
@@ -38,6 +31,13 @@ private:
     void lazyUpdate(Lazy &lazy, int node, int nodeLeft, int nodeRight)
     {
         tree[node].value += lazy * (nodeRight - nodeLeft + 1);
+    }
+
+    // 원래 Lazy와 새로운 Lazy의 연산 정의
+    // 문제마다 수정(기본은 합 연산)
+    Lazy mergeLazy(Lazy &a, Lazy &b)
+    {
+        return a + b;
     }
 
     // node가 [nodeLeft..nodeRight] 표현
@@ -62,8 +62,8 @@ private:
             lazyUpdate(tree[node].lazy, node, nodeLeft, nodeRight);
             if (nodeLeft != nodeRight)
             {
-                tree[node * 2].lazy += tree[node].lazy;
-                tree[node * 2 + 1].lazy += tree[node].lazy;
+                tree[node * 2].lazy = mergeLazy(tree[node * 2].lazy, tree[node].lazy);
+                tree[node * 2 + 1].lazy = mergeLazy(tree[node * 2 + 1].lazy, tree[node].lazy);
             }
             tree[node].lazy = lazy_identity;
         }
@@ -92,8 +92,8 @@ private:
             lazyUpdate(tree[node].lazy, node, nodeLeft, nodeRight);
             if (nodeLeft != nodeRight)
             {
-                tree[node * 2].lazy += tree[node].lazy;
-                tree[node * 2 + 1].lazy += tree[node].lazy;
+                tree[node * 2].lazy = mergeLazy(tree[node * 2].lazy, tree[node].lazy);
+                tree[node * 2 + 1].lazy = mergeLazy(tree[node * 2 + 1].lazy, tree[node].lazy);
             }
             tree[node].lazy = lazy_identity;
         }
@@ -106,8 +106,8 @@ private:
             lazyUpdate(newValue, node, nodeLeft, nodeRight);
             if (nodeLeft != nodeRight)
             {
-                tree[node * 2].lazy += newValue;
-                tree[node * 2 + 1].lazy += newValue;
+                tree[node * 2].lazy = mergeLazy(tree[node * 2].lazy, newValue);
+                tree[node * 2 + 1].lazy = mergeLazy(tree[node * 2 + 1].lazy, newValue);
             }
             return tree[node].value;
         }
