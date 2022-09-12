@@ -14,13 +14,13 @@ private:
     // 좌측 노드와 우측 노드의 연산 정의
     // 결합법칙을 만족하고 항등원이 존재해야 함
     // 문제마다 수정(기본은 합 연산)
-    T merge(T &a, T &b)
+    T merge(const T &a, const T &b)
     {
         return a + b;
     }
 
     // 값 업데이트 시 현재의 값과 새로운 값과의 관계 정의
-    T update_value(T &current, T &new_value)
+    T update_value(const T &current, const T &new_value)
     {
         return new_value;
     }
@@ -35,7 +35,7 @@ private:
 
         // 나머지 초기화
         for (int i = n - 1; i >= 1; i--)
-            tree[i] = merge(tree[i * 2], tree[i * 2 + 1]);
+            tree[i] = merge(tree[i << 1], tree[i << 1 | 1]);
     }
 
 public:
@@ -57,24 +57,24 @@ public:
         T ret = identity;
         while (left <= right)
         {
-            if (left % 2 == 1)
+            if (left & 1)
                 ret = merge(ret, tree[left++]);
-            if (right % 2 == 0)
+            if (!(right & 1))
                 ret = merge(ret, tree[right--]);
-            left /= 2;
-            right /= 2;
+            left >>= 1;
+            right >>= 1;
         }
         return ret;
     }
 
     // array[index] = newValue로 변경
     // array[nodeLeft..nodeRight]의 값 반환
-    void update(int index, T newValue)
+    void update(int index, const T &newValue)
     {
         index += n;
         tree[index] = newValue;
         for (index /= 2; index >= 1; index /= 2)
-            tree[index] = update_value(tree[index], merge(tree[index * 2], tree[index * 2 + 1]));
+            tree[index] = update_value(tree[index], merge(tree[index << 1], tree[index << 1 | 1]));
     }
 };
 
