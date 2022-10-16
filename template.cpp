@@ -22,8 +22,11 @@ using ld = long double;
 #define mmap multimap
 #define mset multiset
 using vi = vector<int>;
+using vll = vector<ll>;
 using vvi = vector<vi>;
+using vvll = vector<vll>;
 using vii = vector<pair<int, int>>;
+using vvii = vector<vector<pair<int, int>>>;
 using ii = pair<int, int>;
 using iii = tuple<int, int, int>;
 
@@ -44,11 +47,22 @@ template <typename T>
 reversion_wrapper<T> reversed(T &&iterable) { return {iterable}; }
 /* End Template */
 
+void main2(int tc)
+{
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+
+    int t;
+    cin >> t;
+    for (int i = 1; i <= t; i++)
+    {
+        main2(i);
+    }
 
     return 0;
 }
